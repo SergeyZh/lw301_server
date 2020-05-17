@@ -10,6 +10,9 @@
 # enable influxdb trigger
 #enable_influxdb = True
 
+## Prometheus
+#enable_prometheus = True
+
 # influxdb write url (should contains ?db query param)
 #influxdb_writeurl = 'http://localhost:8086/write?db=weather'
 
