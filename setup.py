@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='lw301-server',
     version='0.0.1',
-    install_requires=['tornado>=5.1, <6.0'],
+    install_requires=['tornado>=5.1, <6.0', 'prometheus_client'],
     tests_require=['nose', 'pycodestyle'],
     test_suite='nose.collector',
     scripts=['lw301_server'],
