@@ -79,6 +79,9 @@ if __name__ == "__main__":
 
     ioloop = IOLoop.current()
     options = parse_options()
+    if options.debug:
+        logging.basicConfig(level=logging.DEBUG)
+
     application = build_app(debug=options.debug)
 
     # additional app context vars

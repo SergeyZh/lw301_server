@@ -6,9 +6,9 @@ from tornado.options import define, OptionParser
 from tornado.httpclient import AsyncHTTPClient, HTTPRequest, HTTPClientError
 
 
-
 class PrometheusTrigger(Trigger):
     temperature = Gauge('temperature', 'Temperature')
+    humidity = Gauge('humidity', 'Humidity')
 
     _as_tags = ('mac', 'channel')
 
@@ -27,7 +27,6 @@ class PrometheusTrigger(Trigger):
         self.log.debug("on_new_data: measurement: %s, value: %s", measurement, value)
 
         if measurement == 'temperature':
-            self.temperature.set(value)
-
-        pass
-
+            self.temperature.set(value.celsius)
+        if measurement == 'humidity':
+            self.humidity.set(value.relative)
